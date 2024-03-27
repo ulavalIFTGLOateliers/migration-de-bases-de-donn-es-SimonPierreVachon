@@ -1,0 +1,10 @@
+SHOW TABLES LIKE 'singer';
+ALTER TABLE singer RENAME TO musician;
+ALTER TABLE musician ADD COLUMN role VARCHAR(50), ADD COLUMN bandName VARCHAR(50);
+ALTER TABLE musician CHANGE singerName musicianName VARCHAR(50);
+UPDATE musician AS M SET M.role="vocals", M.bandName="Crazy Duo" WHERE M.musicianName="Alina";
+UPDATE musician AS M SET M.role="guitar", M.bandName="Mysterio" WHERE M.musicianName="Mysterio";
+UPDATE musician AS M SET M.role="percussion", M.bandName="Crazy Duo" WHERE M.musicianName="Rainbow";
+UPDATE musician AS M SET M.role="piano", M.bandName="Luna" WHERE M.musicianName="Luna";
+CREATE TABLE band (bandName varchar(50), creation YEAR, genre varchar(50), PRIMARY KEY(bandName));
+INSERT INTO band (bandName, creation, genre) VALUES ("Crazy Duo", 2015, "rock"),("Luna", 2009, "classical"),("Mysterio", 2019, "pop");
